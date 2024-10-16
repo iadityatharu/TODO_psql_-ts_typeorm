@@ -5,6 +5,7 @@ import taskRoutes from "./routes/taskRoute";
 AppDataSource.initialize()
   .then(() => {
     console.log("Database is connected successfully");
+    console.log("Hello Aditya");
     const app = express();
     app.use(express.json());
     app.use("/api", taskRoutes);
