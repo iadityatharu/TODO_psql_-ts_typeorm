@@ -3,14 +3,14 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 @Entity()
 export class Task {
   @PrimaryGeneratedColumn()
-  id: number = 1;
+  id: number;
 
   @Column()
-  title: string = "";
+  title: string;
 
   @Column()
-  description: string = "";
+  description: string;
 
   @Column({ default: false })
-  isCompleted!: boolean;
+  isCompleted: boolean;
 }
