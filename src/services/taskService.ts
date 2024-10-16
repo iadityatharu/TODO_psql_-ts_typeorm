@@ -13,20 +13,18 @@ export class TaskService {
   public async getAllTasks(): Promise<Task[]> {
     return await this.taskRepository.find();
   }
-
   // Get a task by id
   public async getTaskById(id: number): Promise<Task | null> {
     return await this.taskRepository.findOneBy({ id });
   }
-
   // Create a new task
-  public async createTask(title: string, description: string): Promise<Task> {
+  public async createTask(title: string, description: string): Promise<string> {
     const task = new Task();
     task.title = title;
     task.description = description;
-    return await this.taskRepository.save(task);
+    await this.taskRepository.save(task);
+    return "Data inserted successfully";
   }
-
   // Update a task
   public async updateTask(
     id: number,
@@ -39,7 +37,6 @@ export class TaskService {
     Object.assign(task, updates);
     return await this.taskRepository.save(task);
   }
-
   // Delete a task
   public async deleteTask(id: number): Promise<boolean> {
     const result = await this.taskRepository.delete(id);

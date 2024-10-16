@@ -9,7 +9,7 @@ AppDataSource.initialize()
     app.use(express.json());
     app.use("/api", taskRoutes);
     app.listen(process.env.PORT || 8080, () => {
-      console.log(`Server is listening on ${process.env.PORT}`);
+      console.log(`Server is listening on ${process.env.PORT || 8080}`);
     });
   })
   .catch((error) => console.log(error));
